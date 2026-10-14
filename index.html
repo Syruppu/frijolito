@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pa uste mi chiquistrikis</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Contenedor del Sobre -->
+  <div class="envelope-wrapper" id="envelopeWrapper" onclick="openEnvelope()">
+    <div class="envelope">
+      <div class="flap"></div>
+      <div class="pocket"></div>
+      
+      <!-- Carta dentro del sobre -->
+      <div class="letter" id="letter">
+        
+        <!-- Tarjeta 1: Primera Pregunta -->
+        <div class="card active" id="card1">
+          <p class="question">Hola amor, ¿Me quieres?</p>
+          <div class="buttons">
+            <button class="btn yes" onclick="sayYes(event)">Sí</button>
+            <button class="btn no" onclick="sayNo(event)"> No </button>
+          </div>
+        </div>
+
+        <!-- Tarjeta 2: Segunda Pregunta (si responde No) -->
+        <div class="card hidden" id="card2">
+          <!-- Imagen para el NO -->
+          <img id="noImage" class="card-img" src="https://i.giphy.com/aWMJvA76tNnBR9gkpT.webp" alt="No image">
+          <p class="question">¿Seguro que no? 🥺</p>
+          <div class="buttons">
+            <button class="btn yes" onclick="sayYes(event)"> Si llorona </button>
+            <button class="btn no" onclick="sayFinalNo(event)"> ño </button>
+          </div>
+        </div>
+
+        <!-- Tarjeta 3: Selección de opciones -->
+        <div class="card hidden" id="cardOptions">
+          <p class="question">¿Qué quieres hacer conmigo? 💖</p>
+          <div class="options-grid">
+            <label class="option-item">
+              <input type="radio" name="option" value="Besos">
+              <span> Besos</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="option" value="Abrazos">
+              <span> Abrazos</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="option" value="Mimitos">
+              <span> Mimitos</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="option" value="Secreto">
+              <span> Secreto</span>
+            </label>
+          </div>
+          <button class="btn send-btn" onclick="submitOptions(event)">Continuar ❤️</button>
+        </div>
+
+        <!-- Tarjeta 4: Selección de Secreto -->
+        <div class="card hidden" id="cardSecret">
+          <p class="question">¿Qué secreto quieres compartir conmigo? 🤫</p>
+          <textarea id="secretInput" class="secret-input" placeholder="Escribe tu secreto aquí..."></textarea>
+          <button class="btn send-btn" onclick="submitSecret(event)">Enviar 💌</button>
+        </div>
+
+        <!-- Tarjeta Dinámica: Muestra el detalle de la opción elegida -->
+        <div class="card hidden" id="cardDetail">
+          <img id="detailImg" class="card-img" src="" alt="Detalle">
+          <p class="question" id="detailText"></p>
+          <button class="btn back-btn" onclick="backToOptions(event)">Volver a elegir 🔄</button>
+        </div>
+
+        <!-- Tarjeta Final: Mensaje Bonito -->
+        <div class="card hidden" id="cardFinal">
+          <p class="message" id="finalMessage">💖 ¡Sabía que dirías que sí! Me haces muy feliz. ✨</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
